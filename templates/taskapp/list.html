@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %} таблицы {% endblock %}
+
+
+{% load render_table from django_tables2 %}
+{% load static %}
+<!doctype html>
+<html>
+    <head>
+    </head>
+    <body>
+        {% render_table third_party %}
+        {% render_table accounts %}
+    </body>
+</html>

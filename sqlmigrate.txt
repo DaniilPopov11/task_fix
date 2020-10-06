@@ -1,0 +1,13 @@
+BEGIN;
+--
+-- Create model third_party
+--
+CREATE TABLE "taskapp_third_party" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "third_party_id" integer NOT NULL, "first_name" varchar(128) NOT NULL, "last_name" varchar(128) NOT
+ NULL, "patronymic" varchar(128) NOT NULL, "birth_date" date NOT NULL);
+--
+-- Create model accounts
+--
+CREATE TABLE "taskapp_accounts" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "account_id" integer NOT NULL, "account_number" varchar(512) NOT NULL, "start_date" date NOT NULL, "en
+d_date" date NOT NULL, "third_party_id" integer NOT NULL REFERENCES "taskapp_third_party" ("id") DEFERRABLE INITIALLY DEFERRED);
+CREATE INDEX "taskapp_accounts_third_party_id_1b1491a7" ON "taskapp_accounts" ("third_party_id");
+COMMIT;
